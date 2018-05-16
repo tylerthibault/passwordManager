@@ -2,6 +2,8 @@ import json
 import sys
 import os
 
+studentInfoPath = "C:\\Users\Spectre\Documents\Programming\passwordManager\student_info.json"
+
 class user_class():
     def __init__(self, name):
         self.name = name
@@ -38,9 +40,7 @@ class user_class():
             }
         })
 
-        path = "C:\\Users\Spectre\Documents\Programming\Student Password manager\student_info.json"
-
-        with open(path, 'w') as outfile:
+        with open(studentInfoPath, 'w') as outfile:
             json.dump(fileLoaded, outfile)
 
         outfile.close()
@@ -54,19 +54,17 @@ class user_class():
 
 def load_file():
     global fileLoaded
-
-    path = "C:\\Users\Spectre\Documents\Programming\Student Password manager\student_info.json"
-
-    fileSize = os.path.getsize(path)
+    
+    fileSize = os.path.getsize(studentInfoPath)
 
     if fileSize > 0:
-        f = open(path, 'r')
+        f = open(studentInfoPath, 'r')
         fileLoaded = json.load(f)
         f.close()
         return
 
     else:
-        f = open(path, 'w')
+        f = open(studentInfoPath, 'w')
         data = {
             "users": {
 
