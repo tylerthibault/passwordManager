@@ -72,6 +72,7 @@ def load_file():
         }
         json.dump(data, f)
         f.close()
+        print("there is no users, please type 'new user'")
         return
 
 
